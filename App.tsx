@@ -1,5 +1,5 @@
 import { styles, ui_modules, utils } from './src';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import {
   SafeAreaView,
   SafeAreaProvider,
@@ -16,18 +16,25 @@ export default function App() {
 
         <View style={styles.design.wrapper}>
           <Text style={styles.design.title}>UASTARR WIRELESS ARMING INTERFACE</Text>
+          <Separator />
+        </View>
+        
+        <View style={styles.design.wrapper}>
+          <Text style={styles.design.status}>STATUS: </Text>
         </View>
 
         <View style={styles.design.wrapper}>
-          <Text style={styles.design.status}>STATUS</Text>
+          <ui_modules.ButtonTemplate PressFunc={() => utils.showAlert("ARMED")} 
+                                                      label="ARM ROCKET" 
+                                                      color={"#ff0000"} 
+                                                      pressColor={"#880000"} />
         </View>
 
         <View style={styles.design.wrapper}>
-          <Text style={styles.design.arm}>ARMING BUTTON</Text>
-        </View>
-
-        <View style={styles.design.wrapper}>
-          <Text style={styles.design.refresh}>REFRESH</Text>
+          <ui_modules.ButtonTemplate PressFunc={() => utils.showAlert("Refreshing...")} 
+                                                      label="REFRESH" 
+                                                      color={"#00bbff"} 
+                                                      pressColor={"#005e80"} />
         </View>
 
         <View style={styles.design.wrapper}>

@@ -1,5 +1,18 @@
 import React from 'react';
 import { styles } from './';
-import { Text, Alert, Button } from 'react-native';
+import { Text, Alert, Pressable } from 'react-native';
 
-// export const Refresh = () => <Button title="Refresh" style={styles.design.refresh} onPress={() => showAlert('Button with adjusted color pressed')} />
+export const ButtonTemplate = ({ PressFunc, label, color, pressColor }) => {
+  return (
+    <Pressable
+      onPress={PressFunc}
+      style={({ pressed }) => [
+        styles.design.buttonShape,
+        {
+          backgroundColor: pressed ? pressColor : color, // Dynamic background color
+        },
+      ]}>
+      <Text style={styles.design.text}>{label}</Text>
+    </Pressable>
+  );}
+

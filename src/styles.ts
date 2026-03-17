@@ -1,6 +1,5 @@
-import {StyleSheet, Text, PixelRatio} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-// const fontScale = PixelRatio.getFontScale();
 
 export const design = StyleSheet.create({
   container: {
@@ -12,7 +11,7 @@ export const design = StyleSheet.create({
   wrapper: {
     flex: 1,
     padding: 6,
-    alignItems: 'flex-start',
+    alignItems: 'stretch',
   },
   title: {
     verticalAlign: 'top',
@@ -21,6 +20,23 @@ export const design = StyleSheet.create({
     fontFamily: 'Inter',
     fontWeight: 'bold',
     fontSize: 20,
+  },
+  text: {
+    color: '#ffffff',
+    fontSize: 14,
+    fontFamily: 'Inter',
+    alignSelf: 'center',
+    fontWeight: 'bold'
+  },
+  buttonShape: {
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    elevation: 3, 
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   refresh: {
     color: '#00bbff',
@@ -32,7 +48,8 @@ export const design = StyleSheet.create({
     color: '#ff00ff',
   },
   status: {
-    color: '#00ff00',
+    color: '#FFFFFF',
+    fontWeight: 'bold',
   },
   current: {
     color: '#f6ff00',
