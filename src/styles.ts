@@ -1,5 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 
+const TextStyle = {
+    fontFamily: 'Inter',
+    fontWeight: '700' as const,
+};
 
 export const design = StyleSheet.create({
   container: {
@@ -17,16 +21,29 @@ export const design = StyleSheet.create({
     verticalAlign: 'top',
     textAlign: 'center',
     color: '#eaeaea',
-    fontFamily: 'Inter',
-    fontWeight: 'bold',
+    ...TextStyle,
     fontSize: 20,
   },
   text: {
     color: '#ffffff',
     fontSize: 14,
+    alignSelf: 'center',
+    ...TextStyle,
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#ffffff',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+});
+
+export const buttonDesign = StyleSheet.create({
+  buttonText:{
+    color: '#ffffff',
+    fontSize: 16,
     fontFamily: 'Inter',
     alignSelf: 'center',
-    fontWeight: 'bold'
+    ...TextStyle,
   },
   buttonShape: {
     paddingVertical: 12,
@@ -47,16 +64,35 @@ export const design = StyleSheet.create({
   select: {
     color: '#ff00ff',
   },
-  status: {
-    color: '#FFFFFF',
-    fontWeight: 'bold',
+});
+
+export const status = StyleSheet.create({
+  header: {
+    color: '#ffffff',
+    ...TextStyle,
+  },
+  notConnected: {
+    color: '#FF0000',
+    ...TextStyle,
+  },
+  connecting: {
+    color: '#ffff00',
+    ...TextStyle,
+  },
+  connected: {
+    color: '#00be00',
+    ...TextStyle,
+  }
+});
+
+
+export const info = StyleSheet.create({
+  header: {
+    color: "#ffffff",
+    ...TextStyle,
   },
   current: {
-    color: '#f6ff00',
-  },
-  separator: {
-    marginVertical: 8,
-    borderBottomColor: '#ffffff',
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    color: '#0088ff',
+    ...TextStyle,
   },
 });

@@ -7,7 +7,7 @@ export const ButtonTemplate = ({ PressFunc, label, color, pressColor }) => {
     <Pressable
       onPress={PressFunc}
       style={({ pressed }) => [
-        styles.design.buttonShape,
+        styles.buttonDesign.buttonShape,
         {
           backgroundColor: pressed ? pressColor : color, // Dynamic background color
         },
