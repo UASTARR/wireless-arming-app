@@ -20,7 +20,7 @@ export default function App() {
         </View>
         
         <View style={styles.design.wrapper}>
-          <Text style={styles.design.status}>STATUS: </Text>
+          <Text style={styles.status.header}>STATUS: </Text>
         </View>
 
         <View style={styles.design.wrapper}>
@@ -32,17 +32,17 @@ export default function App() {
 
         <View style={styles.design.wrapper}>
           <ui_modules.ButtonTemplate PressFunc={() => utils.showAlert("Refreshing...")} 
-                                                      label="REFRESH" 
-                                                      color={"#00bbff"} 
+                                                      label="FORCE REFRESH" 
+                                                      color={"#0088ff"} 
                                                       pressColor={"#005e80"} />
         </View>
 
         <View style={styles.design.wrapper}>
-          <Text style={styles.design.current}>CURRENT CONNECTED</Text>
+          <Text style={styles.info.header}>CURRENT CONNECTED: </Text>
         </View>
 
         <View style={styles.design.wrapper}>
-          <Text style={styles.design.select}>SELECT MENU</Text>
+          <Text style={styles.buttonDesign.select}>SELECT MENU</Text>
         </View>
 
       </SafeAreaView>
