@@ -47,12 +47,16 @@ function scanAndConnect(onDeviceFound: (device: Device) => void) {
       return;
     }
 
-    if (device.name === 'Wireless-Arming-Switch') { // TODO: Check if this is the correct name on the wireless arming switch repo
+    // These are the names I found the device was advertising in app_ble.c on the Wireless-Arming-Switch repo (line 218)
+    // If these are wrong, change these and it will connect hopefully.
+    if (device.name === 'STARR WAS' || device.name === 'WAS') { 
       // Stop scanning as it's not necessary if you are scanning for one device.
       manager.stopDeviceScan()
+
+      // Run callback to use the device
       onDeviceFound(device)
     }
   })
-    .then(() => { })
+    .then(() => { }) // Future and Error Handling
     .catch(console.error);
 }
