@@ -40,21 +40,19 @@ requestBluetoothPermission();
 export const manager = new BleManager();
 
 // Coppied from https://dotintent.github.io/react-native-ble-plx/#getting-started
-function scanAndConnect() {
+function scanAndConnect(onDeviceFound: (device: Device) => void) {
   manager.startDeviceScan(null, null, (error, device) => {
     if (error) {
-      // Handle error (scanning will be stopped automatically)
-      return
+      utils.showAlert('There was an error scanning for devices');
+      return;
     }
 
-    // Check if it is a device you are looking for based on advertisement data
-    // or other criteria.
-    if (device.name === 'TI BLE Sensor Tag' || device.name === 'SensorTag') {
+    if (device.name === 'Wireless-Arming-Switch') { // TODO: Check if this is the correct name on the wireless arming switch repo
       // Stop scanning as it's not necessary if you are scanning for one device.
       manager.stopDeviceScan()
-
-      // Proceed with connection.
+      onDeviceFound(device)
     }
   })
+    .then(() => { })
+    .catch(console.error);
 }
-
