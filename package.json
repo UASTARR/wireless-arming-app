@@ -21,6 +21,8 @@
     "react-native": "0.83.2",
     "react-native-safe-area-context": "~5.6.2",
     "react-native-web": "^0.21.0",
+    "react-preview": "^0.0.0",
+    "react-use-precision-timer": "^3.5.6",
     "typescript": "~5.9.2"
   },
   "private": true
