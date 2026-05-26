@@ -18,17 +18,34 @@ export default function timer() {
         return () => clearInterval(updateInterval);
     }, [stopwatch.isRunning()]);
     
+    
+    function start() {
+        stopwatch.start();
+    }
+
+    function stop() {
+        setVal(0);
+        stopwatch.stop();
+    }
+
+    function pause() {
+        stopwatch.pause();
+    }
+
+    function resume() {
+        stopwatch.resume();
+    }
 
     return (
         <View>
-            <p>Time: {val} ms </p>
-            <Button
+            <Text>Time: {val} ms </Text>
+            <Button    
                 onPress={() => {
                     if (stopwatch.isStarted()) {
                         setVal(0);
-                        stopwatch.stop();
+                        stop();
                     } else {
-                        stopwatch.start();
+                        start();
                     }
                 }}
                 title={stopwatch.isStarted() ? "Stop" : "Start"}
@@ -37,9 +54,9 @@ export default function timer() {
             <Button
                 onPress={() => {
                     if (!stopwatch.isPaused()){
-                        stopwatch.pause();
+                        pause();
                     } else {
-                        stopwatch.resume();
+                       resume();
                     }
                 }}
                 title={!stopwatch.isPaused() ? "Pause" : "Resume"}
