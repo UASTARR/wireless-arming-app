@@ -5,21 +5,20 @@ import { useStopwatch } from 'react-use-precision-timer';
 
 export default function timer() {
 
-    const [val, setVal] = useState(0);
-    const stopwatch = useStopwatch();
+    const [val, setVal] = useState(0); {/* Initialises the time value (milliseconds) */}
+    const stopwatch = useStopwatch(); {/* Initialises the stopwatch object from the stopwatch library */}
 
-    useEffect(() => {
+    useEffect(() => {                 {/* Stopwatch display update logic */}
         if (!stopwatch.isRunning()) return;
 
         const updateInterval = setInterval(() => {
-            setVal(stopwatch.getElapsedRunningTime());
-        }, 10);
+            setVal(stopwatch.getElapsedRunningTime());}, 10); {/* Updates every 10ms i think */}
 
         return () => clearInterval(updateInterval);
     }, [stopwatch.isRunning()]);
     
     
-    function start() {
+    function start() { 
         stopwatch.start();
     }
 
@@ -39,7 +38,9 @@ export default function timer() {
     return (
         <View>
             <Text>Time: {val} ms </Text>
-            <Button    
+              
+            {/* Start/stop button */}
+            <Button        
                 onPress={() => {
                     if (stopwatch.isStarted()) {
                         setVal(0);
@@ -50,8 +51,11 @@ export default function timer() {
                 }}
                 title={stopwatch.isStarted() ? "Stop" : "Start"}
             />
+
+            
+            {/* Pause/resume button */}
             {stopwatch.isStarted() &&
-            <Button
+            <Button     
                 onPress={() => {
                     if (!stopwatch.isPaused()){
                         pause();
