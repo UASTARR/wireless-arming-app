@@ -22,10 +22,29 @@ export default function timer() {
     return (
         <View>
             <p>Time: {val} ms </p>
-            <Button  
-                onPress={() => stopwatch.isRunning() ? stopwatch.stop() : stopwatch.start()}
-                title={stopwatch.isRunning() ? "Stop" : "Start"}
+            <Button
+                onPress={() => {
+                    if (stopwatch.isStarted()) {
+                        setVal(0);
+                        stopwatch.stop();
+                    } else {
+                        stopwatch.start();
+                    }
+                }}
+                title={stopwatch.isStarted() ? "Stop" : "Start"}
             />
+            {stopwatch.isStarted() &&
+            <Button
+                onPress={() => {
+                    if (!stopwatch.isPaused()){
+                        stopwatch.pause();
+                    } else {
+                        stopwatch.resume();
+                    }
+                }}
+                title={!stopwatch.isPaused() ? "Pause" : "Resume"}
+            />}
+
         </View>
     );
 }
