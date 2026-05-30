@@ -1,4 +1,4 @@
-import { BleManager } from 'react-native-ble-plx'
+import { BleManager, Device } from 'react-native-ble-plx'
 import { Platform, PermissionsAndroid } from 'react-native';
 import { utils } from './';
 
@@ -40,7 +40,7 @@ requestBluetoothPermission();
 export const manager = new BleManager();
 
 // Coppied from https://dotintent.github.io/react-native-ble-plx/#getting-started
-function scanAndConnect(onDeviceFound: (device: Device) => void) {
+export function scanAndConnect(setDevice: (device: Device) => void) {
   manager.startDeviceScan(null, null, (error, device) => {
     if (error) {
       utils.showAlert('There was an error scanning for devices');
@@ -49,14 +49,14 @@ function scanAndConnect(onDeviceFound: (device: Device) => void) {
 
     // These are the names I found the device was advertising in app_ble.c on the Wireless-Arming-Switch repo (line 218)
     // If these are wrong, change these and it will connect hopefully.
-    if (device.name === 'STARR WAS' || device.name === 'WAS') { 
+    if (device.name === 'STARR WAS' || device.name === 'WAS' || device.name === 'WAS-ESP32-Test') {
       // Stop scanning as it's not necessary if you are scanning for one device.
+      utils.showAlert('help');
+      setDevice(device);
       manager.stopDeviceScan()
-
-      // Run callback to use the device
-      onDeviceFound(device)
     }
   })
     .then(() => { }) // Future and Error Handling
     .catch(console.error);
+
 }
