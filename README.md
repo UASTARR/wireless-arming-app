@@ -27,8 +27,9 @@ The main react app is built and situated in [`App.tsx`](App.tsx).
 
 4. [`utils.ts`](src/utils.ts)
 
-    Contains helper functions and bluetooth functionality.
+    Contains helper functions.
 
+4. [`bluetooth.ts`](src/bluetooth.ts)
 
-
+    Contains bluetooth connectivity code.
 
