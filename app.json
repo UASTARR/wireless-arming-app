@@ -4,10 +4,10 @@
     "slug": "wireless-arming",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.webp",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/icon.webp",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,9 +17,9 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/icon.webp",
-        "backgroundImage": "./assets/icon.webp",
-        "monochromeImage": "./assets/icon.webp"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundImage": "./assets/icon.png",
+        "monochromeImage": "./assets/icon.png"
       },
       "permissions": [
         "android.permission.BLUETOOTH",
@@ -32,7 +32,7 @@
       "package": "com.anonymous.wirelessarming"
     },
     "web": {
-      "favicon": "./assets/icon.webp"
+      "favicon": "./assets/icon.png"
     },
     "plugins": [
       "expo-font",
